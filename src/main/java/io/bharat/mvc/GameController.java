@@ -37,7 +37,7 @@ public class GameController {
 				responses = {
 						@ApiResponse(responseCode = "200", description = "Found all the titles",
 								content = @Content(mediaType = "application/json")),
-						@ApiResponse(responseCode = "404", description = "Could not found the titles")
+						@ApiResponse(responseCode = "404", description = "Could not find the titles")
 				})
 	@GetMapping("/{title}")
 	public List<Game> getGame(@PathVariable String title) {
