@@ -22,7 +22,7 @@ public class CatalogController {
     @GetMapping("/{userId}")
     public List<CatalogItem> getAllCatalog(@PathVariable String userId){
         UserRating userRating = restTemplate.getForObject("http://RATING-INFO-SERVICE/ratingsdata/users/" + userId, UserRating.class);
-
+        
         return userRating.getUserRatings().stream()
             .map(rating -> {
                 Movie movie = restTemplate.getForObject("http://MOVIE-INFO-SERVICE/movies/" + rating.getMovieId(), Movie.class);
