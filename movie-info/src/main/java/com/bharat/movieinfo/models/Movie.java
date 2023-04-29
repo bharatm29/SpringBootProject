@@ -1,13 +1,22 @@
 package com.bharat.movieinfo.models;
 
 public class Movie {
-    private String movieId, name;
+    private String movieId, name, desc;
 
     public Movie() {}
 
-    public Movie(String movieId, String name) {
+    public Movie(String movieId, String name, String desc) {
         this.movieId = movieId;
         this.name = name;
+        this.desc = desc;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 
     public String getMovieId() {
