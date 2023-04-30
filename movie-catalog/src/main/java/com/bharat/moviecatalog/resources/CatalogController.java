@@ -33,6 +33,7 @@ public class CatalogController {
             .toList();
     }
 
+    //Fallback method for a fail attempt to another microservice.
     private List<CatalogItem> getDefaultCatalog(String userId, Exception e){
         return List.of(new CatalogItem("No movie found", "", 0));
     }
