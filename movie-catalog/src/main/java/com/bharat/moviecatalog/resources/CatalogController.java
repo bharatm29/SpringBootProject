@@ -4,6 +4,7 @@ import com.bharat.moviecatalog.models.CatalogItem;
 import com.bharat.moviecatalog.models.Movie;
 import com.bharat.moviecatalog.models.Rating;
 import com.bharat.moviecatalog.models.UserRating;
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,7 +20,9 @@ public class CatalogController {
 
     @Autowired
     private RestTemplate restTemplate;
+
     @GetMapping("/{userId}")
+    @CircuitBreaker(name = "catalogCircuit", fallbackMethod = "getDefaultCatalog")
     public List<CatalogItem> getAllCatalog(@PathVariable String userId){
         UserRating userRating = restTemplate.getForObject("http://RATING-INFO-SERVICE/ratingsdata/users/" + userId, UserRating.class);
         
@@ -29,5 +32,9 @@ public class CatalogController {
                 return new CatalogItem(movie.getName(), movie.getDesc(), rating.getRating());
             })
             .toList();
+    }
+
+    private List<CatalogItem> getDefaultCatalog(String userId, Exception e){
+        return List.of(new CatalogItem("No movie found", "", 0));
     }
 }
