@@ -2,7 +2,6 @@ package com.bharat.moviecatalog.resources;
 
 import com.bharat.moviecatalog.models.CatalogItem;
 import com.bharat.moviecatalog.models.Movie;
-import com.bharat.moviecatalog.models.Rating;
 import com.bharat.moviecatalog.models.UserRating;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import org.springframework.beans.factory.annotation.Autowired;

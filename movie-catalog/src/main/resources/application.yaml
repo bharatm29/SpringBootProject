@@ -5,7 +5,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: health, circuitbreakerevents
+        include: "*"
   endpoint:
     health:
       show-details: always
@@ -15,7 +15,7 @@ resilience4j:
     instances:
       catalogCircuit:
         registerHealthIndicator: true
-        eventConsumerBufferSize: 10
+        eventConsumerBufferSize: 3
         failureRateThreshold: 50
         minimumNumberOfCalls: 5
         automaticTransitionFromOpenToHalfOpenEnabled: true
