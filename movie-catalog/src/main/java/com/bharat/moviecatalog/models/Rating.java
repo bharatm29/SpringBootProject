@@ -1,5 +1,9 @@
 package com.bharat.moviecatalog.models;
 
+import io.swagger.v3.oas.annotations.Hidden;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+@Schema(hidden = true)
 public class Rating {
     private String movieId;
     private double rating;

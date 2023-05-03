@@ -29,7 +29,6 @@ public class MovieController {
     @GetMapping("/search/{movieDesc}")
     public MovieLists searchMovies(@PathVariable String movieDesc){
         String url = "https://api.themoviedb.org/3/search/movie?api_key=" + apiKey + "&query=" + movieDesc;
-        return restTemplate.getForObject(url,
-                            MovieLists.class);
+        return restTemplate.getForObject(url,MovieLists.class);
     }
 }

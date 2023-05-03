@@ -26,3 +26,8 @@ resilience4j:
         permittedNumberOfCallsInHalfOpenState: 3
         slidingWindowSize: 10
         slidingWindowType: COUNT_BASED
+
+springdoc:
+  swagger-ui:
+    path: catalog-docs
+    default-models-expand-depth: -1
