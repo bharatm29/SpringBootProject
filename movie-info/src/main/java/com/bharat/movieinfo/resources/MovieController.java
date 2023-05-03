@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/movies")
 public class MovieController {
@@ -25,5 +27,10 @@ public class MovieController {
         String url = "https://api.themoviedb.org/3/movie/" + movieId + "?api_key=" + apiKey;
         MovieSummary movieSummary = restTemplate.getForObject(url, MovieSummary.class);
         return new Movie(movieId, movieSummary.getOriginal_title(), movieSummary.getOverview());
+    }
+
+    @GetMapping("/{movieDesc}")
+    public List<Movie> getMovieDetails(@PathVariable String movieDesc){
+        return restTemplate.getForObject("https://api.themoviedb.org/3/movie/"+movieDesc, )
     }
 }

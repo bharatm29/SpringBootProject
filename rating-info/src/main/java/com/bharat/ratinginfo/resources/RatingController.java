@@ -27,13 +27,13 @@ public class RatingController {
         return userRating;
     }
 
-    @PostMapping("/users")
+    @PostMapping("/users/")
     public @ResponseBody String createUser(@RequestBody UserRating userRating){
         ratingRepository.save(userRating);
         return "Successfully created an user";
     }
 
-    @PutMapping("/users/{userid}")
+    @PatchMapping("/users/{userid}")
     public @ResponseBody String updateUser(@RequestBody UserRating userRating){
         ratingRepository.save(userRating);
         return "Successfully updated the user ratings";
