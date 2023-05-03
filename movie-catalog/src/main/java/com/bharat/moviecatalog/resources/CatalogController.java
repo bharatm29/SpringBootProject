@@ -1,8 +1,6 @@
 package com.bharat.moviecatalog.resources;
 
-import com.bharat.moviecatalog.models.CatalogItem;
-import com.bharat.moviecatalog.models.Movie;
-import com.bharat.moviecatalog.models.UserRating;
+import com.bharat.moviecatalog.models.*;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -30,6 +28,11 @@ public class CatalogController {
                 return new CatalogItem(movie.getName(), movie.getDesc(), rating.getRating());
             })
             .toList();
+    }
+
+    @GetMapping("/search/{movieDesc}")
+    public List<MovieSummary> getMovieSearches(@PathVariable String movieDesc){
+        return restTemplate.getForObject(movieuri + "search/" + movieDesc, MovieLists.class).getResults();
     }
 
     @PostMapping("/users")
