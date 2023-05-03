@@ -1,0 +1,5 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://bharat:test1234@mongotestserver.02gzgwo.mongodb.net/test
+      database: moviedb
