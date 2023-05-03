@@ -24,8 +24,8 @@ public class CatalogController {
         UserRating userRating = restTemplate.getForObject(ratinguri + userId, UserRating.class);
         return userRating.getUserRatings().stream()
             .map(rating -> {
-                Movie movie = restTemplate.getForObject(movieuri + rating.getMovieId(), Movie.class);
-                return new CatalogItem(movie.getName(), movie.getDesc(), rating.getRating());
+                MovieSummary movieSummary = restTemplate.getForObject(movieuri + rating.getMovieId(), MovieSummary.class);
+                return new CatalogItem(movieSummary.getOriginal_title(), movieSummary.getOverview(), rating.getRating());
             })
             .toList();
     }
