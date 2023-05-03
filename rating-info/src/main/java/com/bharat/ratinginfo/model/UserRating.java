@@ -4,7 +4,22 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
-
+/*
+JSON payload for this class.
+{
+    "userid": 66,
+    "userRatings": [
+        {
+            "movieId": 123,
+            "rating": 1
+        },
+        {
+            "movieId": 123,
+            "rating": 2
+        }
+    ]
+}
+*/
 @Document("users")
 public class UserRating {
     @Id
@@ -36,5 +51,10 @@ public class UserRating {
 
     public void setUserRatings(List<Rating> userRatings) {
         this.userRatings = userRatings;
+    }
+
+    @Override
+    public String toString() {
+        return "UserID: " + getUserid() + ", RatingsList: " + getUserRatings();
     }
 }

@@ -26,4 +26,9 @@ public class Rating {
     public void setRating(double rating) {
         this.rating = rating;
     }
+
+    @Override
+    public String toString() {
+        return "{ Rating: " + getRating() + ", MovieID: " + getMovieId() + " }";
+    }
 }

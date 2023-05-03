@@ -2,16 +2,19 @@ package com.bharat.ratinginfo.resources;
 
 import com.bharat.ratinginfo.model.Rating;
 import com.bharat.ratinginfo.model.UserRating;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.apache.catalina.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/ratingsdata")
 public class RatingController {
+
+    @Autowired
+    private RatingRepository ratingRepository;
+
     @GetMapping("/{movieId}")
     public Rating getRatingInfo(@PathVariable String movieId){
         return new Rating(movieId, 4);
@@ -19,10 +22,20 @@ public class RatingController {
 
     @GetMapping("/users/{userId}")
     public UserRating getUserRating(@PathVariable String userId){
-        List<Rating> ratings = List.of(new Rating("550", 1),
-                new Rating("551", 69),
-                new Rating("552", 99));
+        UserRating userRating = ratingRepository.findById(userId).orElse(null);
+        System.out.println(userRating);
+        return userRating;
+    }
 
-        return new UserRating(ratings);
+    @PostMapping("/users")
+    public @ResponseBody String createUser(@RequestBody UserRating userRating){
+        ratingRepository.save(userRating);
+        return "Successfully created an user";
+    }
+
+    @PutMapping("/users/{userid}")
+    public @ResponseBody String updateUser(@RequestBody UserRating userRating){
+        ratingRepository.save(userRating);
+        return "Successfully updated the user ratings";
     }
 }
