@@ -1,13 +1,22 @@
 package com.bharat.movieinfo.models;
 
 public class MovieSummary {
-    private String original_title, overview;
+    private String id, original_title, overview;
 
     public MovieSummary() {}
 
-    public MovieSummary(String original_title, String overview) {
+    public MovieSummary(String id, String original_title, String overview) {
+        this.id = id;
         this.original_title = original_title;
         this.overview = overview;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getOriginal_title() {

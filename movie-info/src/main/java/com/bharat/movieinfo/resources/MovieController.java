@@ -1,6 +1,7 @@
 package com.bharat.movieinfo.resources;
 
 import com.bharat.movieinfo.models.Movie;
+import com.bharat.movieinfo.models.MovieLists;
 import com.bharat.movieinfo.models.MovieSummary;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -29,8 +30,11 @@ public class MovieController {
         return new Movie(movieId, movieSummary.getOriginal_title(), movieSummary.getOverview());
     }
 
-    @GetMapping("/{movieDesc}")
-    public List<Movie> getMovieDetails(@PathVariable String movieDesc){
-        return restTemplate.getForObject("https://api.themoviedb.org/3/movie/"+movieDesc, )
+    @GetMapping("/search/{movieDesc}")
+    public List<MovieSummary> getMovieDetails(@PathVariable String movieDesc){
+        String url = "https://api.themoviedb.org/3/search/movie?api_key=" + apiKey + "&query=" + movieDesc;
+        return restTemplate.getForObject(url,
+                            MovieLists.class)
+                .getResults();
     }
 }
