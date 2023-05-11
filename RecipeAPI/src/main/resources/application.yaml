@@ -1,0 +1,44 @@
+server:
+  port: 5000
+
+spring:
+  application:
+    name: RecipeAPI
+
+management:
+  health:
+    circuitbreakers:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
+
+resilience4j:
+  circuitbreaker:
+    configs:
+      default:
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+        waitDurationInOpenState: 5s
+        eventConsumerBufferSize: 3
+        failureRateThreshold: 50
+        minimumNumberOfCalls: 5
+        slidingWindowSize: 10
+        slidingWindowType: COUNT_BASED
+        permittedNumberOfCallsInHalfOpenState: 3
+
+    instances:
+      recipe-name-cb:
+        registerHealthIndicator: true
+        baseConfig: default
+
+      recipe-cat-cb:
+        registerHealthIndicator: true
+        baseConfig: default
+
+      recipe-area-cb:
+        registerHealthIndicator: true
+        baseConfig: default
