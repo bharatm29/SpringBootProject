@@ -32,3 +32,8 @@ resilience4j:
       imageCB:
         baseConfig: default
         registerHealthIndicator: true
+
+springdoc:
+  swagger-ui:
+    path: space-docs
+    default-models-expand-depth: -1
