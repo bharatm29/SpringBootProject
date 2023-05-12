@@ -29,3 +29,6 @@ resilience4j:
       apodCB:
         baseConfig: default
         registerHealthIndicator: true
+      imageCB:
+        baseConfig: default
+        registerHealthIndicator: true
