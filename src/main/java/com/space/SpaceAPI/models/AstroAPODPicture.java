@@ -1,11 +1,11 @@
 package com.space.SpaceAPI.models;
 
-public class AstroPicture {
+public class AstroAPODPicture {
     private String title, hdurl, date, explanation;
 
-    public AstroPicture() {}
+    public AstroAPODPicture() {}
 
-    public AstroPicture(String title, String hdurl, String date, String explanation) {
+    public AstroAPODPicture(String title, String hdurl, String date, String explanation) {
         this.title = title;
         this.hdurl = hdurl;
         this.date = date;

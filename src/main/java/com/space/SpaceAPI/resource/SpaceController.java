@@ -1,6 +1,7 @@
 package com.space.SpaceAPI.resource;
 
-import com.space.SpaceAPI.models.AstroPicture;
+import com.space.SpaceAPI.models.AstroAPODPicture;
+import com.space.SpaceAPI.models.astroImage.AstroImage;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -20,14 +21,23 @@ public class SpaceController {
     @Value("${api.key}")
     private String apiKey;
 
+    @Value("${image.url}")
+    private String imageUrl;
+
     @GetMapping("/apod/{date}")
     @CircuitBreaker(name = "apodCB", fallbackMethod = "apodFallBack")
-    public @ResponseBody AstroPicture getAPOD(@PathVariable String date){
+    public @ResponseBody AstroAPODPicture getAPOD(@PathVariable String date){
         return restTemplate.getForObject(apodUrl + apiKey + "&date=" + date,
-                                        AstroPicture.class);
+                                        AstroAPODPicture.class);
     }
 
-    public AstroPicture apodFallBack(String date, Exception e){
-        return new AstroPicture("No image found", "null", date, "Server failed to retrieve the image");
+    @GetMapping("/images/{search}")
+    public @ResponseBody AstroImage getSearchImages(@PathVariable String search){
+        return restTemplate.getForObject(imageUrl + search, AstroImage.class);aaaaaaaaaaa
+    }
+
+    public AstroAPODPicture apodFallBack(String date, Exception e){
+        String errorExplanation = "Server failed to retrieve the image or no APOD found for the date";
+        return new AstroAPODPicture("No image found", "null", date, errorExplanation);
     }
 }
