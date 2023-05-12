@@ -1,18 +1,15 @@
 package com.space.SpaceAPI.resource;
 
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.space.SpaceAPI.models.AstroAPODPicture;
 import com.space.SpaceAPI.models.astroImage.AstroImage;
-import com.space.SpaceAPI.models.astroImage.AstroImageUtilCollection;
-import com.space.SpaceAPI.models.astroImage.AstroImageUtilData;
-import com.space.SpaceAPI.models.astroImage.AstroImageUtilItems;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/space")
@@ -30,6 +27,12 @@ public class SpaceController {
     @Value("${image.url}")
     private String imageUrl;
 
+    @Operation(summary = "Get the Astronomy Picture of the Day for a day",
+                responses = {
+                    @ApiResponse(responseCode = "200", content = @Content(mediaType = "application/json"),
+                                description = "Found the picture"),
+                    @ApiResponse(responseCode = "404", description = "Could not found the picture - Check date format")
+                })
     @GetMapping("/apod/{date}")
     @CircuitBreaker(name = "apodCB", fallbackMethod = "apodFallBack")
     public @ResponseBody AstroAPODPicture getAPOD(@PathVariable String date){
@@ -37,6 +40,12 @@ public class SpaceController {
                                         AstroAPODPicture.class);
     }
 
+    @Operation(summary = "Search image from NASA repository",
+                responses = {
+                    @ApiResponse(responseCode = "200", content = @Content(mediaType = "application/json"),
+                                    description = "Found the images"),
+                    @ApiResponse(responseCode = "404", description = "Could not find the images with the keyword")
+                })
     @GetMapping("/images/{search}")
     @CircuitBreaker(name = "imageCB", fallbackMethod = "imageFallBack")
     public @ResponseBody AstroImage getSearchImages(@PathVariable String search){
