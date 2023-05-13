@@ -40,6 +40,8 @@ Using this REST API a user can rate a particular set of movies and store it unde
 
 It is my first API which follows [Microservice Architecture](https://microservices.io).
 
+It uses [MongoDB](https://www.mongodb.com) to store the user data.
+
 It implements the [CircuitBreaker Design Pattern](https://learn.microsoft.com/en-us/azure/architecture/patterns/circuit-breaker) using [Resilience4j](https://resilience4j.readme.io/docs). 
 
 Microservices communicate with each other through [Service Discovery](https://www.baeldung.com/cs/service-discovery-microservices) implemented using [Eureka](https://spring.io/guides/gs/service-registration-and-discovery/).
