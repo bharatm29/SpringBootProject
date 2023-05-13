@@ -19,9 +19,9 @@ It is the first _REST API_ I have created from scratch immediately after complet
 
 It uses the standard [MVC design pattern](https://developer.mozilla.org/en-US/docs/Glossary/MVC). 
 
-It uses [Batch Processing](https://spring.io/guides/gs/batch-processing/) to populate the embedded database _([h2](https://www.baeldung.com/spring-boot-h2-database))_ with the data read from the [games.csv](src/main/resources/gamesupdated.csv).
+It uses [Batch Processing](https://spring.io/guides/gs/batch-processing/) to populate the embedded database _([h2](https://www.baeldung.com/spring-boot-h2-database))_ with the data read from the [games.csv]([src/main/resources/gamesupdated.csv](https://github.com/bharatm29/SpringBootProject/blob/d93ad527a0b3f55f48a74509819ddd50335d7a33/src/main/resources/gamesupdated.csv)).
 
-The [games.csv](src/main/resources/gamesupdated.csv) contains a list of video games dating from 1980 to 2023 which is available at [Kaggle](https://www.kaggle.com/datasets/arnabchaki/popular-video-games-1980-2023).
+The [games.csv]([src/main/resources/gamesupdated.csv](https://github.com/bharatm29/SpringBootProject/blob/d93ad527a0b3f55f48a74509819ddd50335d7a33/src/main/resources/gamesupdated.csv)) contains a list of video games dating from 1980 to 2023 which is available at [Kaggle](https://www.kaggle.com/datasets/arnabchaki/popular-video-games-1980-2023).
 
 ---
 ### Movie API
