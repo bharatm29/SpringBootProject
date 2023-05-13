@@ -6,10 +6,10 @@ This is a Repository containing all the API I have made using Spring Boot.
 
 --- 
 ### _List of APIs I have made_[^1]
- * **Movie Catalog API**
-* **Games API**
-* **Space API**
-* **Movie API**
+ * [**Movie Catalog API**](https://github.com/bharatm29/SpringBootProject#movie-catalog-api)
+* [**Games API**](https://github.com/bharatm29/SpringBootProject#games-api)
+* [**Space API**](https://github.com/bharatm29/SpringBootProject#space-api)
+* [**Movie API**](https://github.com/bharatm29/SpringBootProject#movie-api)
 
 ---
 ### Games API
