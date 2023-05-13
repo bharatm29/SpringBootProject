@@ -7,15 +7,10 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
 
 @RestController
 @RequestMapping("/space")
 public class SpaceController {
-
-    @Autowired
-    private RestTemplate restTemplate;
-
     @Autowired
     private AstroAPI astroAPI;
 
@@ -30,7 +25,7 @@ public class SpaceController {
         return astroAPI.getAPOD(date);
     }
 
-    @Operation(summary = "Search image from NASA repository",
+    @Operation(summary = "Search image from NASA API repository",
                 responses = {
                     @ApiResponse(responseCode = "200", content = @Content(mediaType = "application/json"),
                                     description = "Found the images"),
