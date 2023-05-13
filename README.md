@@ -45,4 +45,4 @@ It implements the [CircuitBreaker Design Pattern](https://learn.microsoft.com/en
 Microservices communicate with each other through [Service Discovery](https://www.baeldung.com/cs/service-discovery-microservices) implemented using [Eureka](https://spring.io/guides/gs/service-registration-and-discovery/).
 
 ---
-[^1]: There is also Microservice Level1 and 2 which are tutorial API.
+[^1]: There are also Microservice Level1 and 2 which are tutorial API.
