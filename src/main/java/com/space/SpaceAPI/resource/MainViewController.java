@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.List;
-
 @Controller
 public class MainViewController {
     @Autowired
@@ -33,10 +31,6 @@ public class MainViewController {
     @PostMapping("/apod")
     public ModelAndView getApodViewPost(HttpSession session, @ModelAttribute("inputDate") InputDate date){
         session.setAttribute("date", date.getDate());
-        List<String> testingList = List.of(
-                "text1", "text2"
-        );
-        session.setAttribute("testList", testingList);
         return getApodImage(session);
     }
 
