@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: AnimeCatalogService
+
+server:
+    port: 4000
+
+eureka:
+    client:
+      registerWithEureka: true
+      fetchRegistry: true
+      serviceUrl:
+        defaultZone: http://localhost:4444/eureka/
