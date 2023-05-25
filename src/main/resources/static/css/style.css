@@ -1,11 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap');
+
 * {
     box-sizing:border-box;
+    font-family: 'Ubuntu', 'sans-serif';
 }
 
 body{
     margin: 0;
     padding: 0;
-    background-color: rgb(57, 75, 151);
+    background-color: rgb(204, 221, 226);
 }
 
 ul{
@@ -15,8 +18,8 @@ ul{
 }
 
 .main-header{
-    background-image: url(https://hdwallpaperim.com/wp-content/uploads/2017/08/22/436388-ultra-wide-photography-space_art.jpg);
-    padding-bottom: 10px;
+    background-image: url('../css/img/space-vector.jpg');
+    padding-bottom: 40px;
     border-bottom: 3px solid rgba(75, 102, 223, 1);
 }
 
@@ -29,16 +32,17 @@ ul{
     padding: 0.8em 1.5em;
     text-decoration: none;
     font-size: 1.2em;
+    color: rgba(132, 210, 246, 1);
 }
 
 .headerLi a:hover {
-    background-color: rgba(75, 102, 223, 1);
+    background-color: rgba(56, 111, 164, 1);
 }
 
 .headerH1{
     text-align: center;
     font-size: 3.5em;
-    color:rgb(99, 122, 223);
+    color: rgba(132, 210, 246, 1);
 }
 
 .apodBox{
@@ -46,28 +50,42 @@ ul{
     padding: 0 1em 0 1em;
 }
 
+.imageBox{
+    max-width: 60%;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
 .apodImg{
-    height: 550px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 5%;
+    border: 10px solid rgba(18, 130, 162, 1);
 }
 
 .apodHeading{
     text-align: center;
+    color: rgba(21, 33, 60, 1);
     font-size: 1.5em;
 }
 
 .apodTitle{
-    font-size: 1.5em;
+    font-size: 1.75em;
+    color: rgba(32, 50, 91, 1);
 }
 
 .apodDesc{
-    font-size: 1.1em;
+    color: rgba(32, 50, 91, 1);
+    font-size: 1.25em;
 }
 
 .apodDate{
-    font-size: 1.1em;
+    font-size: 1.25em;
+    color: rgba(32, 50, 91, 1);
 }
 
 .dateTextField{
+    color:rgb(131, 147, 151);
     display: inline-block;
     margin: 100px auto 25px auto;
     padding: 1em;
@@ -80,11 +98,16 @@ ul{
 .dateShow{
     display: block;
     font-size: 1.75em;
+    color:rgba(56, 111, 164, 1);
     padding: 0.5em 1.25em;
     margin: 0 auto;
     border: none;
     border-radius: 1.5em;
     background-color: rgba(255, 255, 255, 0.5);
+}
+
+.dateShow:hover{
+    background-color: rgba(132, 210, 246, 1);
 }
 
 .main-footer{
@@ -93,4 +116,13 @@ ul{
 
 .footer-img {
     height: 40px;
+}
+
+.dateTextField::selection {
+    color: rgba(132, 210, 246, 1);
+}
+
+.dateTextField:focus {
+    color:rgba(56, 111, 164, 1);
+    outline: none;
 }

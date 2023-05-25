@@ -20,8 +20,8 @@
     </header>
 
     <div class="apodBox apodTextBox">
-        <form action="apodImage.html" th:action="@{/apod}" method="post" th:object="${inputDate}">
-            <input class="dateTextField" type="text" name="date">
+        <form action="apodImage.html" th:action="@{/apod}" method="post" th:object="${inputDate}" spellcheck="false">
+            <input class="dateTextField" onClick="this.select();" autofocus type="text" name="date" value="Enter Date {yyyy-mm-dd}">
             <input class="dateShow" type="submit" value="Show">
         </form>
     </div>
