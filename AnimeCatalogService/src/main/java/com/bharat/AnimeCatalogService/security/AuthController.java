@@ -1,5 +1,6 @@
 package com.bharat.AnimeCatalogService.security;
 
+import com.bharat.AnimeCatalogService.security.models.AuthResponse;
 import com.bharat.AnimeCatalogService.security.models.UserAuthenticate;
 import com.bharat.AnimeCatalogService.security.models.UserRegister;
 import com.bharat.AnimeCatalogService.security.services.AuthService;
@@ -13,12 +14,12 @@ public class AuthController {
     private AuthService authService;
 
     @PostMapping("/register")
-    public String registerUser(@RequestBody UserRegister userRegister){
+    public @ResponseBody AuthResponse registerUser(@RequestBody UserRegister userRegister){
         return authService.register(userRegister);
     }
 
     @PostMapping("/authenticate")
-    public String authenticateUser(@RequestBody UserAuthenticate userAuth){
+    public @ResponseBody AuthResponse authenticateUser(@RequestBody UserAuthenticate userAuth){
         return authService.authenticate(userAuth);
     }
 }

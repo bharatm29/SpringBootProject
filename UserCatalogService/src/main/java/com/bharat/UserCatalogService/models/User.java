@@ -4,11 +4,9 @@ package com.bharat.UserCatalogService.models;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor

@@ -1,9 +1,6 @@
 package com.bharat.AnimeCatalogService.security.services;
 
-import com.bharat.AnimeCatalogService.security.models.AnimeUserDetails;
-import com.bharat.AnimeCatalogService.security.models.AnimeUserDetailsSave;
-import com.bharat.AnimeCatalogService.security.models.UserAuthenticate;
-import com.bharat.AnimeCatalogService.security.models.UserRegister;
+import com.bharat.AnimeCatalogService.security.models.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -20,19 +17,21 @@ public class AuthService {
     @Autowired
     private AuthenticationManager authManager;
 
-    public String register(UserRegister userRegister){
+    public AuthResponse register(UserRegister userRegister){
         AnimeUserDetails userDetails = AnimeUserDetails.builder()
-                .email(userRegister.getEmail())
-                .password(userRegister.getPassword())
-                .username(userRegister.getUsername())
-                .build();
+                                        .email(userRegister.getEmail())
+                                        .password(userRegister.getPassword())
+                                        .username(userRegister.getUsername())
+                                        .build();
 
         userService.addUser(userDetails);
 
-        return jwtService.generateToken(userDetails);
+        String jwt = jwtService.generateToken(userDetails);
+
+        return AuthResponse.builder().JWT(jwt).build();
     }
 
-    public String authenticate(UserAuthenticate userAuthenticate){
+    public AuthResponse authenticate(UserAuthenticate userAuthenticate){
         authManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         userAuthenticate.getEmail(),
@@ -41,12 +40,14 @@ public class AuthService {
         );
 
         AnimeUserDetailsSave animeUserDetails = userService.getUserDetails(userAuthenticate.getEmail());
-        return jwtService.generateToken(
-                AnimeUserDetails.builder()
-                        .username(animeUserDetails.getUsername())
-                        .password(animeUserDetails.getPassword())
-                        .email(animeUserDetails.getEmail())
-                        .build()
-        );
+        AnimeUserDetails userDetails =  AnimeUserDetails.builder()
+                                            .username(animeUserDetails.getUsername())
+                                            .password(animeUserDetails.getPassword())
+                                            .email(animeUserDetails.getEmail())
+                                            .build();
+
+        String jwt = jwtService.generateToken(userDetails);
+
+        return AuthResponse.builder().JWT(jwt).build();
     }
 }

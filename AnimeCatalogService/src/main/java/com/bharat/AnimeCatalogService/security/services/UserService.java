@@ -21,7 +21,6 @@ public class UserService {
     }
 
     public void addUser(AnimeUserDetails userDetails){
-        System.out.println(userDetails);
         AnimeUserDetailsSave saveUserDetails = AnimeUserDetailsSave.builder()
                 .username(userDetails.getRealUsername())
                 .password(userDetails.getPassword())

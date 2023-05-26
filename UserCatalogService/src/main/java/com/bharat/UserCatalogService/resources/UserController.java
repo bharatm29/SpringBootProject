@@ -13,14 +13,14 @@ public class UserController {
 
     @PostMapping("/add")
     public String addUser(@RequestBody User user){
-        System.out.println(user);
         userService.addUser(user);
         return "Added the user";
     }
 
     @GetMapping("/{email}")
     public @ResponseBody User getUser(@PathVariable String email){
-        return userService.findUser(email);
+        User user =  userService.findUser(email);
+        return user;
     }
 
     @DeleteMapping("/{email}")
