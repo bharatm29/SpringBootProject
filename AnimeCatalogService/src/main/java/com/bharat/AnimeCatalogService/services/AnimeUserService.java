@@ -1,6 +1,6 @@
 package com.bharat.AnimeCatalogService.services;
 
-import com.bharat.AnimeCatalogService.models.AnimeDetails;
+import com.bharat.AnimeCatalogService.models.animesModels.AnimeDetails;
 import com.bharat.AnimeCatalogService.models.AnimeResponse;
 import com.bharat.AnimeCatalogService.models.AnimeUser;
 import com.bharat.AnimeCatalogService.models.AnimeUserResponse;

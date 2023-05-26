@@ -1,5 +1,6 @@
 package com.bharat.AnimeCatalogService.models;
 
+import com.bharat.AnimeCatalogService.models.animesModels.AnimeDetails;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

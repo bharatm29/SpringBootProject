@@ -1,14 +1,16 @@
-package com.bharat.AnimeCatalogService.models;
+package com.bharat.AnimeCatalogService.models.animesModels;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @Builder
 @AllArgsConstructor
-public class AnimeEpisode {
-    String episodeId, episodeNum, episodeUrl;
+public class AnimeSearch {
+    private List<Anime> animes;
 }
