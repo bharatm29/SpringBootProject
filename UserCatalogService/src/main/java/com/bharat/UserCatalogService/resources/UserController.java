@@ -12,13 +12,20 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/add")
-    public @ResponseBody String addUser(@RequestBody User user){
+    public String addUser(@RequestBody User user){
+        System.out.println(user);
         userService.addUser(user);
-        return "added the user";
+        return "Added the user";
     }
 
     @GetMapping("/{email}")
     public @ResponseBody User getUser(@PathVariable String email){
         return userService.findUser(email);
+    }
+
+    @DeleteMapping("/{email}")
+    public @ResponseBody String deleteUser(@PathVariable String email){
+        userService.deleteUser(email);
+        return "deleted the user";
     }
 }

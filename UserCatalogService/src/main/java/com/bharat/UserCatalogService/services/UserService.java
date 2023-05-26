@@ -19,10 +19,10 @@ public class UserService{
     }
 
     public User findUser(String email){
-        return userRepository.findById(email).orElse(User.builder().email("Not found").build());
+        return userRepository.findByEmail(email);
     }
 
     public void deleteUser(String email){
-        userRepository.deleteById(email);
+        userRepository.deleteByEmail(email);
     }
 }
