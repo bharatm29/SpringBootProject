@@ -1,36 +1,37 @@
 package com.bharat.UserCatalogService.resources;
 
+import com.bharat.UserCatalogService.models.AnimeResponse;
 import com.bharat.UserCatalogService.models.AnimeUser;
 import com.bharat.UserCatalogService.services.AnimeUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/anime")
+@RequestMapping("/anime/user")
 public class AnimeUserController {
     @Autowired
     private AnimeUserService animeUserService;
 
     @PostMapping("/add")
-    public @ResponseBody String addAnimeUser(@RequestBody AnimeUser animeUser){
+    public @ResponseBody AnimeResponse addAnimeUser(@RequestBody AnimeUser animeUser){
         animeUserService.addUser(animeUser);
-        return "added the user";
+        return AnimeResponse.builder().message("Added the user").build();
     }
 
-    @PutMapping("/update/{email}")
-    public @ResponseBody String updateAnimeUser(@PathVariable String email, @RequestBody AnimeUser animeUser){
+    @PatchMapping("/{email}")
+    public @ResponseBody AnimeResponse updateAnimeUser(@PathVariable String email, @RequestBody AnimeUser animeUser){
         animeUserService.updateUser(animeUser);
-        return "updated the user";
+        return AnimeResponse.builder().message("Updated the user").build();
     }
 
-    @GetMapping("/user/{email}")
+    @GetMapping("/{email}")
     public @ResponseBody AnimeUser getUser(@PathVariable String email){
         return animeUserService.getUser(email);
     }
 
     @DeleteMapping("/delete/{email}")
-    public @ResponseBody String deleteUser(@PathVariable String email){
+    public @ResponseBody AnimeResponse deleteUser(@PathVariable String email){
         animeUserService.deleteUser(email);
-        return "deleted the user";
+        return AnimeResponse.builder().message("deleted the user").build();
     }
 }

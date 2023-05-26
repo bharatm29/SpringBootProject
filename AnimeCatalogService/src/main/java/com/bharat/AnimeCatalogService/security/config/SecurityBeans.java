@@ -19,7 +19,6 @@ public class SecurityBeans {
     public UserDetailsService getUserDetails(PasswordEncoder passwordEncoder, UserService userService){
         return username -> {
             AnimeUserDetailsSave animeUserDetails = userService.getUserDetails(username);
-            System.out.println(animeUserDetails);
 
             return AnimeUserDetails.builder()
                     .username(animeUserDetails.getUsername())
