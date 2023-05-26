@@ -4,6 +4,8 @@ import com.bharat.AnimeCatalogService.models.animesModels.AnimeDetails;
 import com.bharat.AnimeCatalogService.models.AnimeResponse;
 import com.bharat.AnimeCatalogService.models.AnimeUser;
 import com.bharat.AnimeCatalogService.models.AnimeUserResponse;
+import com.bharat.AnimeCatalogService.security.models.AnimeUserDetailsSave;
+import com.bharat.AnimeCatalogService.security.services.UserService;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +19,9 @@ public class AnimeUserService {
     @Autowired
     private RestTemplate restTemplate;
 
+    @Autowired
+    private UserService userService;
+
     @CircuitBreaker(name = "post-cb", fallbackMethod = "postFallback")
     public AnimeResponse addAnimeUser(AnimeUser animeUser){
         AnimeResponse animeResponse = restTemplate.postForObject(USER_URI + "/add", animeUser, AnimeResponse.class);
@@ -25,6 +30,11 @@ public class AnimeUserService {
 
     @CircuitBreaker(name = "get-cb", fallbackMethod = "getFallback")
     public AnimeUserResponse getAnimeUser(String email){
+        AnimeUserDetailsSave userDetails = userService.getUserDetails(email);
+        if(userDetails == null){
+            return AnimeUserResponse.builder().email("No such user registered").build();
+        }
+
         AnimeUser animeUser = restTemplate.getForObject(USER_URI + "/" + email, AnimeUser.class);
         return AnimeUserResponse.builder()
                 .email(animeUser.getEmail())
