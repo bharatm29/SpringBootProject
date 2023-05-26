@@ -11,11 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 @NoArgsConstructor
-public class AnimeDetails {
-    private String animeTitle, type, synopsis, releasedDate, status, animeImg;
+public class AnimeTopAiring {
+    private String animeId, animeTitle, animeImg, latestEp, animeUrl;
     private List<String> genres;
-
-    private String episodesAvaliable;
-
-    private List<AnimeEpisode> episodesList;
 }

@@ -1,7 +1,9 @@
 package com.bharat.AnimeAPI.resources;
 
 import com.bharat.AnimeAPI.models.AnimeDetails;
+import com.bharat.AnimeAPI.models.AnimeGenresSearch;
 import com.bharat.AnimeAPI.models.AnimeSearch;
+import com.bharat.AnimeAPI.models.AnimeTopAiringSearch;
 import com.bharat.AnimeAPI.services.AnimeInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,5 +27,15 @@ public class AnimeController {
     @GetMapping("/details/{animeId}")
     public AnimeDetails getDetails(@PathVariable String animeId){
         return animeInfoService.getDetails(animeId);
+    }
+
+    @GetMapping("/top-airing")
+    public AnimeTopAiringSearch getTopAiringAnimes(){
+        return animeInfoService.getTopAiring();
+    }
+
+    @GetMapping("/genre/{genre}")
+    public AnimeGenresSearch getGenresAnime(@PathVariable String genre){
+        return animeInfoService.getGenreAnime(genre);
     }
 }
