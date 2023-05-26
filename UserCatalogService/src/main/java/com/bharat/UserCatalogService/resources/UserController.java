@@ -16,4 +16,9 @@ public class UserController {
         userService.addUser(user);
         return "added the user";
     }
+
+    @GetMapping("/{email}")
+    public @ResponseBody User getUser(@PathVariable String email){
+        return userService.findUser(email);
+    }
 }
