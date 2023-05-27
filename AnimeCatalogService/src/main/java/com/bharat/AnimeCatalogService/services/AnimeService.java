@@ -3,6 +3,7 @@ package com.bharat.AnimeCatalogService.services;
 import com.bharat.AnimeCatalogService.models.animesModels.*;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.RequestEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -16,23 +17,27 @@ public class AnimeService {
     private RestTemplate restTemplate;
 
     @CircuitBreaker(name = "search-cb", fallbackMethod = "searchFallback")
-    public AnimeSearch searchAnime(String name){
-        return restTemplate.getForObject(ANIMEINFOAPI_URI + "/search/" + name, AnimeSearch.class);
+    public AnimeSearch searchAnime(String name, String page){
+        String requestUrl = ANIMEINFOAPI_URI + "/search/" + name + "?page=" + page;
+        return restTemplate.getForObject(requestUrl, AnimeSearch.class);
     }
 
     @CircuitBreaker(name = "details-cb", fallbackMethod = "detailsFallBack")
     public AnimeDetails getAnimeDetails(String animeid){
-        return restTemplate.getForObject(ANIMEINFOAPI_URI + "/details/" + animeid, AnimeDetails.class);
+        String requestUrl = ANIMEINFOAPI_URI + "/details/" + animeid;
+        return restTemplate.getForObject(requestUrl, AnimeDetails.class);
     }
 
     @CircuitBreaker(name = "topAiring-cb", fallbackMethod = "topAiringFallback")
-    public AnimeTopAiringSearch getTopAiringAnimes(){
-        return restTemplate.getForObject(ANIMEINFOAPI_URI + "/top-airing", AnimeTopAiringSearch.class);
+    public AnimeTopAiringSearch getTopAiringAnimes(String page){
+        String requestUrl = ANIMEINFOAPI_URI + "/top-airing?page=" + page;
+        return restTemplate.getForObject(requestUrl, AnimeTopAiringSearch.class);
     }
 
     @CircuitBreaker(name = "genre-cb", fallbackMethod = "genresSearchFallBack")
-    public AnimeGenresSearch getAnimesOfGenres(String genres){
-        return restTemplate.getForObject(ANIMEINFOAPI_URI + "/genre/" + genres, AnimeGenresSearch.class);
+    public AnimeGenresSearch getAnimesOfGenres(String genres, String page){
+        String requestUrl = ANIMEINFOAPI_URI + "/genre/" + genres + "?page=" + page;
+        return restTemplate.getForObject(requestUrl, AnimeGenresSearch.class);
     }
 
     public AnimeSearch searchFallback(String name, Exception e){

@@ -18,6 +18,10 @@ public class AuthService {
     private AuthenticationManager authManager;
 
     public AuthResponse register(UserRegister userRegister){
+        if (userService.getUserDetails(userRegister.getEmail()) != null){
+            return AuthResponse.builder().JWT("User already register. Please consider authenticating").build();
+        }
+
         AnimeUserDetails userDetails = AnimeUserDetails.builder()
                                         .email(userRegister.getEmail())
                                         .password(userRegister.getPassword())

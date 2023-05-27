@@ -10,14 +10,6 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/anime/user")
 public class CatalogController{
-    /*
-    User Actions: AnimeUser class
-        1). Add animes - email and List<String>
-        2). Update animes - email and List<String>
-        3). show animes - email and List<AnimeDetails>
-    FFA display:
-        AnimeAPI call to different urls
-    */
     @Autowired
     private AnimeUserService animeUserService;
 

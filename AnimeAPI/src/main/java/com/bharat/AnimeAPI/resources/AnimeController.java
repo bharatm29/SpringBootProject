@@ -6,10 +6,7 @@ import com.bharat.AnimeAPI.models.AnimeSearch;
 import com.bharat.AnimeAPI.models.AnimeTopAiringSearch;
 import com.bharat.AnimeAPI.services.AnimeInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,8 +17,8 @@ public class AnimeController {
     private AnimeInfoService animeInfoService;
 
     @GetMapping("/search/{name}")
-    public AnimeSearch searchAnime(@PathVariable String name){
-        return animeInfoService.searchAnime(name);
+    public AnimeSearch searchAnime(@PathVariable String name, @RequestParam(defaultValue = "1") String page){
+        return animeInfoService.searchAnime(name, page);
     }
 
     @GetMapping("/details/{animeId}")
@@ -30,12 +27,12 @@ public class AnimeController {
     }
 
     @GetMapping("/top-airing")
-    public AnimeTopAiringSearch getTopAiringAnimes(){
-        return animeInfoService.getTopAiring();
+    public AnimeTopAiringSearch getTopAiringAnimes(@RequestParam(defaultValue = "1") String page){
+        return animeInfoService.getTopAiring(page);
     }
 
     @GetMapping("/genre/{genre}")
-    public AnimeGenresSearch getGenresAnime(@PathVariable String genre){
-        return animeInfoService.getGenreAnime(genre);
+    public AnimeGenresSearch getGenresAnime(@PathVariable String genre, @RequestParam(defaultValue = "1") String page){
+        return animeInfoService.getGenreAnime(genre, page);
     }
 }

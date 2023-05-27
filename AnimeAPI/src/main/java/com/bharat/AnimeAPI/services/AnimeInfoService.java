@@ -21,9 +21,9 @@ public class AnimeInfoService {
     private RestTemplate restTemplate;
 
     @CircuitBreaker(name = "search-cb", fallbackMethod = "searchFallback")
-    public AnimeSearch searchAnime(String name){
+    public AnimeSearch searchAnime(String name, String page){
         ResponseEntity<List<Anime>> searchResponse =
-                restTemplate.exchange(animeApiUri + "search?keyw=" + name,
+                restTemplate.exchange(animeApiUri + "search?keyw=" + name + "&page=" + page,
                         HttpMethod.GET, null, new ParameterizedTypeReference<List<Anime>>(){
                         });
 
@@ -39,11 +39,11 @@ public class AnimeInfoService {
     }
 
     @CircuitBreaker(name = "topAiring-cb", fallbackMethod = "topAiringFallback")
-    public AnimeTopAiringSearch getTopAiring(){
+    public AnimeTopAiringSearch getTopAiring(String page){
 
         ResponseEntity<List<AnimeTopAiring>> topAiringAnimes =
                 restTemplate.exchange(
-                        animeApiUri + "/top-airing",
+                        animeApiUri + "/top-airing?page=" + page,
                         HttpMethod.GET,
                         null,
                         new ParameterizedTypeReference<List<AnimeTopAiring>>(){}
@@ -52,10 +52,10 @@ public class AnimeInfoService {
     }
 
     @CircuitBreaker(name = "genre-cb", fallbackMethod = "genresSearchFallBack")
-    public AnimeGenresSearch getGenreAnime(String genre){
+    public AnimeGenresSearch getGenreAnime(String genre, String page){
         ResponseEntity<List<AnimeGenres>> genresResponse =
                 restTemplate.exchange(
-                        animeApiUri + "/genre/" + genre,
+                        animeApiUri + "/genre/" + genre + "?page=" + page,
                         HttpMethod.GET,
                         null,
                         new ParameterizedTypeReference<List<AnimeGenres>>(){}
