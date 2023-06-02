@@ -3,7 +3,6 @@ package com.bharat.AnimeCatalogService.services;
 import com.bharat.AnimeCatalogService.models.animesModels.*;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.RequestEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 

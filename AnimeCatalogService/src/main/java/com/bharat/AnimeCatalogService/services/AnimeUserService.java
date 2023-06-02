@@ -24,6 +24,10 @@ public class AnimeUserService {
 
     @CircuitBreaker(name = "post-cb", fallbackMethod = "postFallback")
     public AnimeResponse addAnimeUser(AnimeUser animeUser){
+        AnimeUserDetailsSave userdetails = userService.getUserDetails(animeUser.getEmail());
+        if(userdetails == null){
+            return AnimeResponse.builder().message("No such user registered. Consider registering").build();
+        }
         AnimeResponse animeResponse = restTemplate.postForObject(USER_URI + "/add", animeUser, AnimeResponse.class);
         return animeResponse;
     }
