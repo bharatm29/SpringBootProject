@@ -23,7 +23,7 @@ export default function App() {
   const cookie = getCookie("loggedIn");
   if(!isAuthenticated && cookie.startsWith("TRUE")){
     let email = cookie.substring(6, cookie.length);
-    fetchUserDetails(email)
+    fetchUserDetails(email);
     return;
   }
 
@@ -117,8 +117,8 @@ export default function App() {
             </ul>
           </span>
           <span className="headerBtnSpan">
-            <button className="dropShadowBtns btns" id="registerBtn" onClick={() => handlePageChanging(PAGE.register)}>Register</button>
-            <button className="dropShadowBtns btns" onClick={() => handlePageChanging(PAGE.auth)}>Log in</button>
+            {!isAuthenticated && <button className="dropShadowBtns btns" id="registerBtn" onClick={() => handlePageChanging(PAGE.register)}>Register</button>}
+            {!isAuthenticated && <button className="dropShadowBtns btns" id="logInBtn" onClick={() => handlePageChanging(PAGE.auth)}>Log in</button>}
           </span>
         </div>
       </header>

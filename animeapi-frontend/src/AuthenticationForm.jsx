@@ -29,21 +29,50 @@ export default function AuthenticationForm({ fetchUserDetails }){
                 setInvalid(true);
             }
         })
-
-        //this will validate if the user is valid or not and sets isInvalid to true
     }
 
     return(
         <>
             {isInvalid && (<div className="invalidAuth">
-                <span>Invalid! Try again</span>
+                Invalid! Try again
             </div>)}
-            <span>Authentication Form</span>
-            <form onSubmit={handleForm}>
-                <input className="textField" type="text" id="emailTextField" value={emailState} onChange={e => setEmailState(e.target.value)}/>
-                <input className="textField" type="text" id="passwordTextField" value={passwordState} onChange={e => setPasswordState(e.target.value)}/>
-                <input type="submit" value="log in" />
-            </form>
+            <div className="tag authFormTag popUpElem"><span className="authFormTagText">Log In</span></div>
+            <div className="popUpElem formHead">
+                <form onSubmit={handleForm}>
+                    <div className="formContainer">
+                        <div className="credentialContainer">
+                            <label htmlFor="emailTextField" className="tag labelText">Email</label>
+                            <input 
+                                className="textField" 
+                                type="email" 
+                                id="emailTextField" 
+                                value={emailState}
+                                autoComplete="off"
+                                required
+                                spellCheck={false}
+                                placeholder="enter email"
+                                onChange={e => setEmailState(e.target.value)}/>
+                        </div>
+                        <div className="credentialContainer">
+                            <label htmlFor="passwordTextField" className="tag labelText">Password</label>
+                            <input 
+                                className="textField" 
+                                type="password"
+                                id="passwordTextField"
+                                value={passwordState}
+                                required
+                                spellCheck={false}
+                                placeholder="enter password"
+                                onChange={e => setPasswordState(e.target.value)}/>
+                        </div>
+                        <div className="submitContainer">
+                            <input className="btns dropShadowBtns submitBtn"
+                                type="submit" 
+                                value="LOG IN" />
+                        </div>
+                    </div>
+                </form>
+            </div>
         </>
     )
 }

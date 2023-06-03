@@ -4,11 +4,12 @@ import "./mainStyle.css"
 export default function Profile({ username, email, animes }){
     return (
         <>
-            <span>
-                Name <strong>{username}</strong> <br/>
-                Email <strong>{email}</strong>
-            </span>
-            <div>
+            <div className="profileInfoContainer">
+                <div className="nameInfoTag tag">{username}'s inventory</div>
+                {/* <div className="emailInfo tag">{email}</div> */}
+            </div>
+
+            <div className="profileAnimes">
                 {
                     animes.map(anime => {
                         return <AnimeDetailsCard {...anime}></AnimeDetailsCard>

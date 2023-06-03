@@ -9,6 +9,9 @@ export default function SearchAnime( {email} ){
     const jwt = "eyJhbGciOiJIUzI1NiJ9.eyJwYXNzd29yZCI6InRlc3QiLCJzdWIiOiJ0ZXN0QGdtYWlsLmNvbSIsImlhdCI6MTY4NTY5OTEzNn0.vEPRZgBURHBETEPovWsRMSqBKRS4zMNIFcVrJphkmkY";
 
     async function addAnimeToUser(animeId){
+        const addDialog = document.querySelector("#addDialogBox");
+        addDialog.show();
+
         const requestObj = {
             email,
             animeIds: [
@@ -52,6 +55,7 @@ export default function SearchAnime( {email} ){
                             className="searchField" 
                             type="text"
                             spellCheck={false}
+                            autoComplete="off"
                             name="search"
                             id="seach"
                             placeholder="search anime"
@@ -71,7 +75,7 @@ export default function SearchAnime( {email} ){
             </section>
 
             <div className="searchResultTag tag">
-                <h3>Search Results</h3>
+                Search Results
             </div>
 
             <div className="searchResultsContainer">
