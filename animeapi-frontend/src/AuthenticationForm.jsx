@@ -33,10 +33,10 @@ export default function AuthenticationForm({ fetchUserDetails }){
 
     return(
         <>
+            <div className="tag authFormTag popUpElem"><span className="authFormTagText">Log In</span></div>
             {isInvalid && (<div className="invalidAuth">
                 Invalid! Try again
             </div>)}
-            <div className="tag authFormTag popUpElem"><span className="authFormTagText">Log In</span></div>
             <div className="popUpElem formHead">
                 <form onSubmit={handleForm}>
                     <div className="formContainer">

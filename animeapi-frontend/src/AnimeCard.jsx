@@ -11,11 +11,11 @@ export default function AnimeCard({ animeId, animeTitle, animeUrl, animeImg, sta
                 <img className="genImg animeImg popUpShadowElem" src={animeImg} alt="Not found" height={100} />
             </div>
             <div className="addBtnContainer">
-                <dialog id="addDialogBox">
+                <dialog className="addDialogBox" id={`dialogBox${animeId}`}>
                     <div className="addMsg">Added!</div>
                     <div className="closeBtnContainer addCloseBtn">
                         <button className="closeBtn btns" onClick={e => {
-                            document.querySelector("#addDialogBox").close();
+                            document.querySelector(`#dialogBox${animeId}`).close();
                         }}>close</button>
                     </div>
                 </dialog>

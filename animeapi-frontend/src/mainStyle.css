@@ -347,6 +347,13 @@ input[type="email"]:invalid{
     font-weight: bold;
 }
 
+.invalidAuth{
+    text-align: center;
+    font-size: 1.5em;
+    color: rgb(143, 37, 37);
+    margin-bottom: 0.5em;
+}
+
 .formContainer{
     max-width: 35%;
     margin: 0 auto 0 auto;
@@ -391,7 +398,7 @@ input[type="email"]:invalid{
     position: relative;
 }
 
-#addDialogBox {
+.addDialogBox {
     position: absolute;
     left: 85px;
     color:rgb(123, 192, 207);

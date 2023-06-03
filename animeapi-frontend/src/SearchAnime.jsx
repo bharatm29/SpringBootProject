@@ -9,7 +9,7 @@ export default function SearchAnime( {email} ){
     const jwt = "eyJhbGciOiJIUzI1NiJ9.eyJwYXNzd29yZCI6InRlc3QiLCJzdWIiOiJ0ZXN0QGdtYWlsLmNvbSIsImlhdCI6MTY4NTY5OTEzNn0.vEPRZgBURHBETEPovWsRMSqBKRS4zMNIFcVrJphkmkY";
 
     async function addAnimeToUser(animeId){
-        const addDialog = document.querySelector("#addDialogBox");
+        const addDialog = document.querySelector(`#dialogBox${animeId}`);
         addDialog.show();
 
         const requestObj = {
@@ -30,6 +30,10 @@ export default function SearchAnime( {email} ){
     }
 
     const getSearchResults = () => {
+        const searchResultsText = document.querySelector("#searchResultsText");
+        searchResultsText.innerHTML = "Search Results";
+        searchResultsText.classList.add("popUpElem")
+
         fetch(`http://localhost:4000/anime/search/${searchName}`,
         {
             method: "GET",
@@ -74,9 +78,7 @@ export default function SearchAnime( {email} ){
             </div>
             </section>
 
-            <div className="searchResultTag tag">
-                Search Results
-            </div>
+            <div className="searchResultTag tag" id="searchResultsText"></div>
 
             <div className="searchResultsContainer">
                 {
