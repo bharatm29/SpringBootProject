@@ -38,8 +38,8 @@ public class AnimeUserService {
         if(userDetails == null){
             return AnimeUserResponse.builder().email("No such user registered").build();
         }
-
         AnimeUser animeUser = restTemplate.getForObject(USER_URI + "/" + email, AnimeUser.class);
+
         return AnimeUserResponse.builder()
                 .email(animeUser.getEmail())
                 .animes(animeUser.getAnimeIds().stream().map(
