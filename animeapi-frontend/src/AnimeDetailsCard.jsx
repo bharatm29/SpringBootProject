@@ -2,7 +2,6 @@ import EpisodeButton from "./EpisodeButton";
 import "./mainStyle.css"
 
 export default function AnimeDetailsCard({ animeTitle, synopsis, animeUrl, animeImg, status, releasedDate, genres, episodesList }){
-    episodesList = episodesList.toReversed(); //TODO: find a better way to reverse!
     return (
         <div>
             <div className="animeDetailsCard">
@@ -12,12 +11,12 @@ export default function AnimeDetailsCard({ animeTitle, synopsis, animeUrl, anime
                 }}>Remove</button>
 
                 <dialog className="removeDialog" data-modal>
-                    <div className="removeMsg">Remove is not yet implemented!</div>
+                    <div className="removeMsg tag">Remove is not yet implemented!</div>
                     <div className="closeBtnContainer">
                         <button className="closeBtn btns" onClick={e => {
                             const modal = document.querySelector("[data-modal]");
                             modal.close();
-                            }}>close</button>
+                            }}>Close</button>
                     </div>
                 </dialog>
 

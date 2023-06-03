@@ -204,7 +204,7 @@ input[type="text"]::selection, input[type="email"]::selection, input[type="passw
     margin: 10px auto 10px auto;
 }
 
-.nameInfoTag{
+.nameInfo{
     font-size: 2.5em;
     text-align: center;
     margin-bottom: 1.25em;

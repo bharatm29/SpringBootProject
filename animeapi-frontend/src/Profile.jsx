@@ -5,7 +5,7 @@ export default function Profile({ username, email, animes }){
     return (
         <>
             <div className="profileInfoContainer">
-                <div className="nameInfoTag tag">{username}'s inventory</div>
+                <div className="nameInfo tag">{username}'s inventory</div>
                 {/* <div className="emailInfo tag">{email}</div> */}
             </div>
 

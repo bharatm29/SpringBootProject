@@ -18,6 +18,7 @@ export default function SearchAnime( {email} ){
                 animeId
             ]
         }
+
         await fetch(`http://localhost:4000/anime/user/add`,
         {
             method: "POST",
@@ -52,7 +53,7 @@ export default function SearchAnime( {email} ){
     return(
         <>
             <section className="mainDisplay">
-            <div className="searchFormContainer">
+            <div className="searchFormContainer popUpElem">
                 <form onSubmit={handleFormSubmit} className="searchForm">
                     <div className="searchFieldContainer">
                         <input 

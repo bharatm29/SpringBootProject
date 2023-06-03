@@ -127,7 +127,7 @@ export default function App() {
 
       {(showPage === PAGE.home) && <HomeDisplay></HomeDisplay>}
 
-      {(showPage === PAGE.search) && <SearchAnime {...userProfile} ></SearchAnime>}
+      {(showPage === PAGE.search) && <SearchAnime {...userProfile} fetchUserDetails={fetchUserDetails} ></SearchAnime>}
 
       {(showPage === PAGE.profile) && <Profile {...userProfile}></Profile>}
 
