@@ -1,0 +1,194 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap");
+
+* {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+html {
+    height: 100%;
+}
+
+body{
+    background: rgb(2,0,36);
+    background: linear-gradient(-30deg, rgba(2,0,36,1) 0%, rgba(128,159,166,1) 75%);
+    background-attachment: fixed;
+    margin: 0.75em 1.5em 0 1.5em;
+}
+
+.mainHeader{
+    padding-bottom: 1.25em;
+    margin-bottom: 2.5em;
+    border-bottom: 2px solid rgba(2,0,36,0.35);
+}
+
+.headerBox{
+    position: relative;
+    font-size: 1.25em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #eff1f3;
+}
+
+.navList{
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+.navListElem{
+    font-size: 1.25em;
+    display: inline-block;
+    padding: 0 2.5em 0 2.5em;
+}
+
+.navListElem:hover {
+    cursor: pointer;
+    color: rgba(2,0,36,1);
+    transform: scale(117.5%);
+}
+
+.appNameTag{
+    font-size: 1.5em;
+}
+
+.headerBtnSpan{
+    padding-right: 1em;
+}
+
+.btns {
+    font-size: 1em;
+    padding: 0.5em 1em 0.5em 1em;
+    border: 0.25px solid rgba(2,0,36, 0);
+    border-radius: 2em;
+    background-color: rgb(123, 192, 207);
+}
+
+#registerBtn{
+    margin-right: 0.5em;
+}
+
+.dropShadowBtns:hover{
+    background-color: rgba(2,0,36,1);
+    border: 0.25px solid rgba(2,0,36,1);
+    color:rgb(123, 192, 207);
+    filter: drop-shadow(5px 5px 7.5px rgb(123, 192, 207));
+    transform: scale(105%);
+}
+
+.dropShadowBtns:focus{
+    outline: 0;
+    background-color: rgba(2,0,36,1);
+    border: 0.25px solid rgba(2,0,36,1);
+    color:rgb(123, 192, 207);
+    filter: drop-shadow(5px 5px 7.5px rgb(123, 192, 207));
+    transform: scale(105%);
+}
+
+.searchFormContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchBtnContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.searchBtn{
+    font-size: 1.5em
+}
+
+.searchField{
+    padding: 0.75em;
+    margin: 0.75em;
+    margin-top: 0;
+    font-size: 2em;
+    border: 5px solid transparent;
+    border-radius: 5px;
+    background-color: rgb(123, 192, 207);
+}
+
+input[type="text"]::selection {
+    background-color: rgb(2,0,36);
+    color:rgb(123, 192, 207);
+}
+
+.searchField:focus {
+    outline: 0;
+    animation: deep 0.15s ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+.searchResultsContainer{
+    min-width: 50%;
+    max-height: auto;
+
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-items: center;
+
+    gap: 55px;
+}
+
+.animeCardContainer{
+    padding: 1em 5em 1em 5em;
+    background-color: rgb(123, 192, 207, 1);
+    animation: deep 1s ease-in-out;
+    animation-fill-mode: forwards;
+    border-radius: 3em;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.animeTag{
+    font-size: 1.25em;
+    margin-top: 12.5px;
+    margin-bottom: 12.5px;
+    color:rgba(2,0,36,1);
+}
+
+.animeTag a{
+    color: rgba(2,0,36,1);
+    text-decoration: none;
+}
+
+.titleTag:focus, .titleTag:hover{
+    outline: 0;
+    transform: scale(107.5%);
+}
+
+.animeImg{
+    margin: 30px;
+    height: 250px;
+    animation: deep 0.25s ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+.addBtn{
+    margin: 1em;
+    background-color: rgba(2,0,36,1);
+    color:rgb(123, 192, 207);
+}
+
+.addBtn:hover{
+    transform: scale(115%);
+    animation: lesserDeep 0.25s ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes deep{
+    100%{
+        filter: drop-shadow(10px 10px 5px rgb(2,0,36));
+    }
+}
+
+@keyframes lesserDeep {
+    100%{
+        filter: drop-shadow(5px 5px 7.5px rgb(2,0,36));
+    }
+}
