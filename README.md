@@ -39,6 +39,7 @@ It leverages Service Discovery, Circuit breaker pattern and Java persistence API
 It makes calls to a locally running __express__ server to get information regarding animes which is available on github, [here](https://github.com/riimuru/gogoanime-api).
 
 The frontend is written in React. 
+
 ---
 
 ### Games API
