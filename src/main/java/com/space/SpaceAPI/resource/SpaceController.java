@@ -32,7 +32,8 @@ public class SpaceController {
                     @ApiResponse(responseCode = "404", description = "Could not find the images with the keyword")
                 })
     @GetMapping("/images/{search}")
-    public @ResponseBody AstroImage getSearchImages(@PathVariable String search){
-        return astroAPI.getImage(search);
+    public @ResponseBody AstroImage getSearchImages(@PathVariable String search,
+                                                    @RequestParam(value = "page", defaultValue="1") String page){
+        return astroAPI.getImage(search, page);
     }
 }

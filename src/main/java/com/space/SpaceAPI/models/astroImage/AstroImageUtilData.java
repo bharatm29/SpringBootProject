@@ -1,7 +1,10 @@
 package com.space.SpaceAPI.models.astroImage;
 
+import java.util.List;
+
 public class AstroImageUtilData {
     private String title, location, description, photographer, date_created, nasa_id, media_type;
+    private List<String> keywords;
 
     public String getMedia_type() {
         return media_type;
@@ -59,4 +62,11 @@ public class AstroImageUtilData {
         this.nasa_id = nasa_id;
     }
 
+    public List<String> getKeywords() {
+        return keywords;
+    }
+
+    public void setKeywords(List<String> keywords) {
+        this.keywords = keywords;
+    }
 }

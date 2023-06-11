@@ -4,14 +4,13 @@ import java.util.List;
 
 public class AstroImageUtilItems {
     List<AstroImageUtilData> data;
-    List<AstroImageUtilLinks> links;
+    String href;
 
-    public AstroImageUtilItems() {
-    }
+    public AstroImageUtilItems() {}
 
-    public AstroImageUtilItems(List<AstroImageUtilData> data, List<AstroImageUtilLinks> links) {
+    public AstroImageUtilItems(List<AstroImageUtilData> data, String href) {
         this.data = data;
-        this.links = links;
+        this.href = href;
     }
 
     public List<AstroImageUtilData> getData() {
@@ -22,11 +21,11 @@ public class AstroImageUtilItems {
         this.data = data;
     }
 
-    public List<AstroImageUtilLinks> getLinks() {
-        return links;
+    public String getHref() {
+        return href;
     }
 
-    public void setLinks(List<AstroImageUtilLinks> links) {
-        this.links = links;
+    public void setHref(String href) {
+        this.href = href;
     }
 }
