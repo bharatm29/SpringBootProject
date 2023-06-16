@@ -1,5 +1,6 @@
 package com.bharat.weatherapi.services;
 
+import com.bharat.weatherapi.models.DateHandler;
 import com.bharat.weatherapi.models.WeatherCodes;
 import com.bharat.weatherapi.models.WeatherForecastDaily;
 import com.bharat.weatherapi.models.wrapper.dailyForecast.WeatherForecastDailyWrapper;
@@ -40,6 +41,7 @@ public class WeatherService {
         RealtimeForecast realtimeForecast = restTemplate.getForObject(url, RealtimeForecast.class);
 
         if(realtimeForecast != null){
+            realtimeForecast.getData().setTime(DateHandler.getFormatDate(realtimeForecast.getData().getTime()));
             var values = realtimeForecast.getData().getValues();
             values.setWeatherCode(weatherCodes.getCodes().get(values.getWeatherCode()));
         }

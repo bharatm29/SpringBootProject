@@ -37,8 +37,9 @@ public class WeatherForecastDaily{
         Map<String, String> codes = weatherCodes.getCodes();
         List<DailyForecast> dailyData = wrapper.getTimelines().getDaily();
 
-        dailyData.forEach(value -> {
-                    var val = value.getValues();
+        dailyData.forEach(data -> {
+                    data.setTime(DateHandler.getFormatDate(data.getTime()));
+                    var val = data.getValues();
                     val.setWeatherCodeMax(codes.get(val.getWeatherCodeMax()));
                     val.setWeatherCodeMin(codes.get(val.getWeatherCodeMin()));
                 });

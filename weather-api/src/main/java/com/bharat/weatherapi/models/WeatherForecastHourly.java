@@ -1,7 +1,5 @@
 package com.bharat.weatherapi.models;
 
-import com.bharat.weatherapi.models.wrapper.dailyForecast.DailyForecast;
-import com.bharat.weatherapi.models.wrapper.hourlyForecast.ForecastData;
 import com.bharat.weatherapi.models.wrapper.hourlyForecast.HourlyForecast;
 import com.bharat.weatherapi.models.wrapper.hourlyForecast.WeatherForecastHourlyWrapper;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -34,13 +32,17 @@ public class WeatherForecastHourly {
                     .data(List.of(HourlyForecast.builder().time("0").build()))
                     .build();
         }
+        page = page > 12 ? 12 : page;
+        long skip = (long) (page == 1 ? 0 : (page - 1) * 10L);
         List<HourlyForecast> hourlyData = wrapper.getTimelines().getHourly()
                 .stream()
-                .limit(page * 10)
+                .skip(skip)
+                .limit(10)
                 .toList();
 
-        hourlyData.forEach(value -> {
-            var val = value.getValues();
+        hourlyData.forEach(data -> {
+            data.setTime(DateHandler.getFormatDate(data.getTime()));
+            var val = data.getValues();
             val.setWeatherCode(weatherCodes.getCodes().get(val.getWeatherCode()));
         });
 
