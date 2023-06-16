@@ -1,5 +1,6 @@
 package com.bharat.weatherapi.services;
 
+import com.bharat.weatherapi.models.WeatherCodes;
 import com.bharat.weatherapi.models.WeatherForecastDaily;
 import com.bharat.weatherapi.models.wrapper.dailyForecast.WeatherForecastDailyWrapper;
 import com.bharat.weatherapi.models.WeatherForecastHourly;
@@ -15,8 +16,8 @@ public class WeatherService {
     @Autowired
     private RestTemplate restTemplate;
 
-//    @Value("${api.key}")
-//    private String apiKey;
+    @Value("${api.key}")
+    private String apiKey;
 
     @Value("${url.forecast}")
     private String forecastUrl;
@@ -24,19 +25,40 @@ public class WeatherService {
     @Value("${url.realtime}")
     private String realtimeUrl;
 
+    @Autowired
+    private WeatherForecastDaily weatherForecastDaily;
+
+    @Autowired
+    private WeatherForecastHourly weatherForecastHourly;
+
+    @Autowired
+    private WeatherCodes weatherCodes;
+
     public RealtimeForecast getRealtimeWeather(String location) {
-        String url = realtimeUrl + "?location=" + location + "&apikey=YEGsCPSIbbeZrG6esvVheZUwrwl0TxIf";
-        return restTemplate.getForObject(url, RealtimeForecast.class);
+        String url = realtimeUrl + "?location=" + location + "&apikey=" + apiKey;
+
+        RealtimeForecast realtimeForecast = restTemplate.getForObject(url, RealtimeForecast.class);
+
+        if(realtimeForecast != null){
+            var values = realtimeForecast.getData().getValues();
+            values.setWeatherCode(weatherCodes.getCodes().get(values.getWeatherCode()));
+        }
+
+        return realtimeForecast;
     }
 
-    public WeatherForecastHourly getWeatherForecastHourly(String location, String page, String pageSize) {
-        String url = forecastUrl + "?location=" + location + "&apikey=YEGsCPSIbbeZrG6esvVheZUwrwl0TxIf" + "&timesteps=1h";
+    public WeatherForecastHourly getWeatherForecastHourly(String location, Integer page) {
+        String url = forecastUrl + "?location=" + location + "&apikey=" + apiKey + "&timesteps=1h";
+
         WeatherForecastHourlyWrapper hourlyRes =  restTemplate.getForObject(url, WeatherForecastHourlyWrapper.class);
-        return WeatherForecastHourly.makeObjectFromWrapper(hourlyRes);
+
+        return weatherForecastHourly.makeObjectFromWrapper(hourlyRes, page);
     }
-    public WeatherForecastDaily getWeatherForecastDaily(String location, String page, String pageSize) {
-        String url = forecastUrl + "?location=" + location + "&apikey=YEGsCPSIbbeZrG6esvVheZUwrwl0TxIf" + "&timesteps=1d";
+    public WeatherForecastDaily getWeatherForecastDaily(String location) {
+        String url = forecastUrl + "?location=" + location + "&apikey=" + apiKey + "&timesteps=1d";
+
         WeatherForecastDailyWrapper dailyRes = restTemplate.getForObject(url, WeatherForecastDailyWrapper.class);
-        return WeatherForecastDaily.makeObjectFromWrapper(dailyRes);
+
+        return weatherForecastDaily.makeObjectFromWrapper(dailyRes);
     }
 }
