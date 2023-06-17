@@ -1,5 +1,11 @@
+import APIRouter from "./modules/APIRouter";
+import Header from "./modules/Header";
+
 export default function App() {
-  return (
-      <h1>Hello!</h1>
-  )
+    return (
+        <>
+			<Header></Header>
+            <APIRouter></APIRouter>
+        </>
+    );
 }

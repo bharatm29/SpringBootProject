@@ -1,0 +1,23 @@
+import React from "react";
+import { NavLink } from "react-router-dom";
+
+export default function Header() {
+    return (
+        <header className="main-header">
+            <nav className="main-nav">
+                <ul className="header-ul">
+                    <li className="header-li">
+                        <NavLink to={"/"} className="header-link">
+                            Home
+                        </NavLink>
+                    </li>
+                    <li className="header-li">
+                        <NavLink to={"/forecast"} className="header-link">
+                            Forecast
+                        </NavLink>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+    );
+}
