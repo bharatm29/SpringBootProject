@@ -71,6 +71,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>weather-api-jar</finalName>
 	</build>
 
 </project>
