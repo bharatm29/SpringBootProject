@@ -1,5 +1,7 @@
 export default function DailyForecast() {
-  return (
-    <div>DailyForecast</div>
-  )
+    return (
+        <div className="daily-container">
+            <div>DailyForecast</div>
+        </div>
+    );
 }
