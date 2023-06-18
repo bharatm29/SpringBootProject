@@ -4,9 +4,9 @@ import Home from "./Home";
 import Forecast from "./forecast-modules/Forecast";
 import RealtimeForecast from "./forecast-modules/RealtimeForecast";
 import WeatherForecast from "./forecast-modules/WeatherForecast";
-import Header from "./Header";
 import DailyForecast from "./forecast-modules/weather-forecast/DailyForecast";
 import HourlyForecast from "./forecast-modules/weather-forecast/HourlyForecast";
+import RealtimeResults from "./forecast-modules/RealtimeResults";
 
 export default function APIRouter() {
     return (
@@ -16,7 +16,12 @@ export default function APIRouter() {
                 <Route
                     path="realtime"
                     element={<RealtimeForecast></RealtimeForecast>}
-                />
+                >
+                    <Route
+                        path="results"
+                        element={<RealtimeResults></RealtimeResults>}
+                    />
+                </Route>
                 <Route
                     path="weather"
                     element={<WeatherForecast></WeatherForecast>}

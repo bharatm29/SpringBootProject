@@ -1,12 +1,17 @@
-export default function SearchForm() {
+import { useState } from "react";
+
+export default function SearchForm({ handleSubmit }) {
+    const [location, setLocation] = useState("");
     return (
         <>
             <div className="form-container">
-                <form action="" className="search-form">
+                <form onSubmit={e => handleSubmit(e, location)} className="search-form">
                     <input
                         type="search"
                         name="searchLoc"
                         id="searchLoc"
+                        value={location}
+                        onChange={e => setLocation(e.target.value)}
                         spellCheck={false}
                         autoComplete="off"
                         placeholder="enter location"

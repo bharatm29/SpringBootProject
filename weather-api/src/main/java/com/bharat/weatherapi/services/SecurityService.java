@@ -13,8 +13,9 @@ public class SecurityService {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         UrlBasedCorsConfigurationSource corsConfig = new UrlBasedCorsConfigurationSource();
         corsConfig.registerCorsConfiguration("/**", new CorsConfiguration().applyPermitDefaultValues());
-        http.csrf().disable()
+        http
                 .cors(corsConfigurer -> corsConfigurer.configurationSource(corsConfig))
+                .csrf().disable()
                 .authorizeHttpRequests().anyRequest().permitAll();
 
         return http.build();
