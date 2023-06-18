@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  frontend:
+    image: frontend-img
+    build:
+      context: ./weather-api-frontend
+      dockerfile: Dockerfile.prod
+    container_name: frontend-cont
+    ports:
+      - "4001:80"
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ./weather-api
+      dockerfile: Dockerfile
+    ports:
+      - "4000:4000"
+    image: backend-img
+    container_name: backend-cont
