@@ -1,8 +1,8 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { NavLink, Outlet } from "react-router-dom";
+import '../../styles/styles.css'
 
 export default function Forecast() {
-    const location = useLocation();
     const navigate = useNavigate();
     return (
         <>
@@ -11,13 +11,13 @@ export default function Forecast() {
                     className="forecast-btn"
                     onClick={(e) => navigate("/forecast/realtime")}
                 >
-                    <NavLink className="btnLink">Realtime Forecast</NavLink>
+                    <NavLink className="navLink btnLink">Realtime Forecast</NavLink>
                 </button>
                 <button
                     className="forecast-btn"
                     onClick={(e) => navigate("/forecast/weather")}
                 >
-                    <NavLink className="btnLink">Weather Forecast</NavLink>
+                    <NavLink className="navLink tnLink">Weather Forecast</NavLink>
                 </button>
                 <Outlet/>
             </div>

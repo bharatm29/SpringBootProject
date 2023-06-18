@@ -1,0 +1,9 @@
+FROM node:alpine AS build
+WORKDIR /frontend
+COPY /package.json .
+RUN npm i
+COPY . /frontend
+CMD [ "npm", "run", "build" ]
+
+FROM nginx
+COPY --from=build /frontend/dist /usr/share/nginx/html
