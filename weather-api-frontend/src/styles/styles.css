@@ -1,6 +1,6 @@
 /*vars*/
-:root{
-    --pri-clr: hsl(215, 63%, 35%);
+:root {
+    --pri-clr: #e2e0e0;
     --sec-clr: #87bfff;
     --tri-clr: #add7f6;
 }
@@ -11,8 +11,8 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
-  font: inherit;
+    box-sizing: border-box;
+    font: inherit;
 }
 
 /* Remove default margin */
@@ -27,39 +27,38 @@ blockquote,
 dl,
 dd,
 ul {
-  margin: 0;
+    margin: 0;
 }
 
-*:focus{
+*:focus {
     outline: 0;
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-ul[role='list'],
-ol[role='list'] {
-  list-style: none;
+ul[role="list"],
+ol[role="list"] {
+    list-style: none;
 }
 
-li{
+li {
     display: inline-block;
 }
 
 /* Set core root defaults */
 html:focus-within {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 /* Set core body defaults */
 body {
-  min-height: 100vh;
-  text-rendering: optimizeSpeed;
-  line-height: 1.5;
-  margin-inline: 0.5rem;
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
 }
 
 /* A elements that don't have a class get default styles */
 a:not([class]) {
-  text-decoration-skip-ink: auto;
+    text-decoration-skip-ink: auto;
 }
 
 .navLink {
@@ -69,8 +68,8 @@ a:not([class]) {
 /* Make images easier to work with */
 img,
 picture {
-  max-width: 100%;
-  display: block;
+    max-width: 100%;
+    display: block;
 }
 
 /* Inherit fonts for inputs and buttons */
@@ -78,53 +77,54 @@ input,
 button,
 textarea,
 select {
-  font: inherit;
-  border: 0;
+    font: inherit;
+    border: 0;
 }
 
 /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
-  html:focus-within {
-   scroll-behavior: auto;
-  }
-  
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.25ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.25ms !important;
-    scroll-behavior: auto !important;
-  }
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.25ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.25ms !important;
+        scroll-behavior: auto !important;
+    }
 }
 
 /*Resets ends*/
 
-body{
-  background-color: var(--pri-clr);
-  color: var(--tri-clr);
+body {
+    background-color: var(--pri-clr);
+    color: var(--tri-clr);
 }
 
-.navLink{
-  color: var(--tri-clr)
+.navLink {
+    color: var(--tri-clr);
 }
 
 /*Header styling*/
-.main-header{
+.main-header {
+    background-color: white;
     display: flex;
     align-items: center;
-    padding-block: 0.5rem;
-    margin-bottom: 1rem;
+    padding-block: 2rem;
+    padding-inline: 1rem;
 }
-.app-container{
+.app-container {
     margin-right: auto;
 }
 
-.main-nav{
+.main-nav {
     margin-right: auto;
 }
 
-.header-ul{
+.header-ul {
     display: flex;
     gap: 1em;
 }
@@ -133,8 +133,8 @@ body{
 
 /*Home styling*/
 
-.home-container{
-    min-height: 82.5vh; 
+.home-container {
+    min-height: 82.5vh;
 }
 
 /*EOS*/
