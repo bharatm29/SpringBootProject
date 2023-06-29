@@ -1,0 +1,308 @@
+@import url(//db.onlinewebfonts.com/c/9858825add5dfc27e04714fda690b1ea?family=M+Sung+Gold+PRC);
+
+:root {
+    --purple: #eacff8;
+    --dark-purple: #9f5cd5;
+    --gray: #f4f4f4;
+    --light-gray: #f8f8f8;
+    --dark-gray: #9a9a9a;
+    --black: #343434;
+}
+
+/*Resets*/
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+button,
+figure,
+blockquote,
+dl,
+dd,
+input[type="text"] {
+    margin: 0;
+    outline: 0;
+    border: 0;
+    font: inherit;
+}
+
+/* Set core root defaults */
+html:focus-within {
+    scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+/*EOS*/
+
+body {
+    font-family: "MSungGold PRC Black Font Info", serif;
+    margin: 0.5rem;
+}
+/*Header Styling*/
+.main-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.app-name {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.styled-btn {
+    background-color: var(--purple);
+    color: var(--dark-purple);
+    padding-inline: 0.75em;
+    font-size: 1.15em;
+    border-radius: 100vh;
+}
+
+.styled-btn:hover,
+.styled-btn:focus {
+    background-color: var(--dark-purple);
+    color: var(--purple);
+}
+
+/*EOS*/
+
+/*Search Form Styling*/
+
+.search-form-contaier{
+    display: flex;
+    justify-content: center;
+}
+.search-form{
+    background-color: var(--gray);
+    min-width: 25%;
+    border-radius: 0.5em;
+    padding: 0.25em 0.5em;
+}
+
+.search-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.search-field{
+    color: var(--black);
+    font-weight: bold;
+    background-color: transparent;
+    font-size: 1.25em;
+    padding-left: 0.25em;
+}
+
+.submit-btn{
+    background-color: transparent;
+    padding: 0;
+    margin-top: 0.25em;
+}
+
+
+/*EOS*/
+
+/*Word Styling*/
+.word-wrapper-container{
+    display: flex;
+    justify-content: center;
+}
+
+.word-container{
+    max-width: 50%;
+}
+
+/*EOS*/
+
+/*Word Meaning*/
+
+.wordMeaning-container{
+    position: relative;
+    margin-top: 0.5rem;
+}
+
+.wordMeaning-play-container{
+    position: absolute;
+    inset: 0;
+    left: 85%;
+}
+
+.wordMeaning-word{
+    font-size: 3em;
+    color: var(--black);
+    font-weight: bolder;
+}
+
+.wordMeaning-wordPronounce{
+    font-size: 1.25em;
+    color: var(--dark-purple);
+    font-weight: bold;
+}
+/*EOS*/
+
+/*Meaning styling*/
+
+.meaning-container{
+    margin-block: 2rem 1rem;
+}
+
+.meaning-partOfSpeech{
+    display: flex;
+    color: var(--black);
+    font-weight: bold;
+    font-size: 1.25em;
+}
+
+.gray-line{
+    position: relative;
+    flex-grow: 1;
+    margin-left: 1em;
+}
+.gray-line::before{
+    content: '';
+    background-color: var(--light-gray);
+    position: absolute;
+    inset: 48% 0 48% 0;
+}
+
+.meaning-tag{
+    font-size: 1.25em;
+    color: var(--dark-gray)
+}
+.meaning-definitions{
+    margin-top: 1rem; 
+}
+
+.meaning-definition-elem{
+    font-size: 1.125em;
+    margin-block: 0.5em;
+}
+
+.meaning-definition-elem::marker{
+    color: var(--dark-purple)
+}
+
+.meaning-definition, .meaning-example{
+    max-width: 60ch;
+}
+
+.meaning-example{
+    color: var(--dark-gray);
+}
+
+.meaning-synonyms{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75em;
+
+    margin-block: 0.5rem;
+}
+
+.meaning-synonyms-tag{
+    color: var(--dark-gray);
+    font-size: 1.125em;
+}
+
+.meaning-antonyms{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75em;
+
+    margin-block: 0.5rem;
+}
+
+.meaning-antonyms-tag{
+    color: var(--dark-gray);
+    font-size: 1.125em;
+}
+
+.synonym, .antonyms{
+    color: var(--dark-purple);
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+/*EOS*/
+
+/*Source Styling*/
+.source-gray-line{
+    background-color: var(--light-gray);
+    min-width: 100%;
+    min-height: 2px;
+    margin-block: 0.5em;
+}
+.source-container{
+    position: relative;
+}
+
+.source-tag{
+    color: var(--dark-gray);
+}
+
+.source-link{
+    text-decoration: none;    
+}
+
+.source-image{
+    position: absolute;
+    inset: 0;
+    left: 50px;
+    top: 5%
+}
+
+.source-icon{
+    max-width: 1em;
+}
+
+/*EOS*/
