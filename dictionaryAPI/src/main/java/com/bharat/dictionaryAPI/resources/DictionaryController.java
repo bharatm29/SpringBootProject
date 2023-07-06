@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@CrossOrigin(origins = "http://192.168.0.102:4001")
+@CrossOrigin(origins = "http://192.168.0.102:4001") //allowing fetch calls from React
 @RequestMapping("/api")
 public class DictionaryController {
     @Autowired
