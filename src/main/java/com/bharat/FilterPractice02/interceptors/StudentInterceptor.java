@@ -47,7 +47,6 @@ public class StudentInterceptor implements HandlerInterceptor {
     @Override
     //Runs after the response or view is processed but is not rendered!
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-
         log.info("Intercepting the response with headers: {}", response.getHeaderNames());
 
         HandlerMethod handlerMethod = (HandlerMethod) handler;

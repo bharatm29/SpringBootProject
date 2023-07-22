@@ -6,20 +6,19 @@ import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 @Component
 @Order(1)
-
 @Log4j2
 public class StudentFilter implements Filter{
     @Override
     public void doFilter(ServletRequest servletRequest,
                          ServletResponse servletResponse,
                          FilterChain chain) throws IOException, ServletException {
+
         HttpServletResponse response = (HttpServletResponse) servletResponse;
         HttpServletRequest request = (HttpServletRequest) servletRequest;
 
@@ -36,7 +35,7 @@ public class StudentFilter implements Filter{
 
         log.info(stringBuilder.toString());
 
-        //Setting the header.
+        //Setting the response header.
         response.setHeader("X-Powered-By", "com.bharat");
 
         //writing to the response
