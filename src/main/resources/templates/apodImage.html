@@ -7,30 +7,35 @@
     <title>Apod Image</title>
 </head>
 <body>
-    <header class = "main-header">
-        <nav class = "main-nav nav">
-            <ul class = "headerList">
-                <li class = "headerLi"><a href="home.html" th:href="@{/homepage}">Home</a></li>
-                <li class = "headerLi"><a href="apod.html" th:href="@{/apod}">Picture of the Day</a></li>
-                <li class = "headerLi"><a href="imgSearch.html" th:href="@{/imgSearch}">Image Search</a></li>
-            </ul>
-        </nav>
-        <h1 class = "headerH1">Space API</h1>
-    </header>
+    <div class="app-container">
+        <header class = "main-header">
+            <nav class = "main-nav nav">
+                <ul class = "headerList">
+                    <li class = "headerLi"><a href="home.html" th:href="@{/homepage}">Home</a></li>
+                    <li class = "headerLi"><a href="apod.html" th:href="@{/apod}">Picture of the Day</a></li>
+                    <li class = "headerLi"><a href="imgSearch.html" th:href="@{/imgSearch}">Image Search</a></li>
+                </ul>
+            </nav>
+            <h1 class = "headerH1">Space API</h1>
+        </header>
 
-    <h2 class = "apodHeading">Astronomy Picture of the Day</h2>
+        <div class="content-container">
+            <h2 class = "apodHeading">Astronomy Picture of the Day</h2>
 
-    <div class="apodBox imageBox" th:object="${session.apodImgObj}">
-        <h3 class="apodTitle" th:text="*{title}">The Secret of the Black Aurora</h3>
-        <p class="apodDesc" th:text="*{explanation}">What causes black aurora?  These gaps in normal bright aurora are frequently recorded but rarely questioned.  Recent research using data from four Cluster spacecraft orbiting the Earth has now likely found the secret: black auroras are actually anti-auroras.   In normal auroras, electrons and/or predominantly negatively charged particles fall toward Earth along surfaces of constant magnetic field.  They ionize the Earth's atmosphere on impact, causing the bright glows.  In black anti-auroras, however, negatively charged particles are sucked out from the Earth's ionosphere along adjoining magnetic field lines.  These dark anti-auroras can climb to over 20,000 kilometers and last for several minutes.  Pictured above, a black aurora is seen dividing bright auroras over Fairbanks, Alaska, USA</p>
-        <h4 class="apodDate" th:text="*{date}">2002-01-01</h4>
-        <img class="apodImg" src="https://apod.nasa.gov/apod/image/0201/blackaurora_curtis_big.jpg"
-             th:attr="src=@{*{hdurl}}" alt="Error">
+            <div class="apodBox imageBox" th:object="${session.apodImgObj}">
+                <h3 class="apodTitle" th:text="*{title}">The Secret of the Black Aurora</h3>
+                <p class="apodDesc" th:text="*{explanation}">What causes black aurora?  These gaps in normal bright aurora are frequently recorded but rarely questioned.  Recent research using data from four Cluster spacecraft orbiting the Earth has now likely found the secret: black auroras are actually anti-auroras.   In normal auroras, electrons and/or predominantly negatively charged particles fall toward Earth along surfaces of constant magnetic field.  They ionize the Earth's atmosphere on impact, causing the bright glows.  In black anti-auroras, however, negatively charged particles are sucked out from the Earth's ionosphere along adjoining magnetic field lines.  These dark anti-auroras can climb to over 20,000 kilometers and last for several minutes.  Pictured above, a black aurora is seen dividing bright auroras over Fairbanks, Alaska, USA</p>
+                <h4 class="apodDate" th:text="*{date}">2002-01-01</h4>
+                <img class="apodImg" src="https://apod.nasa.gov/apod/image/0201/blackaurora_curtis_big.jpg"
+                    th:attr="src=@{*{hdurl}}" alt="Error">
+            </div>
+        </div>
+
+        <footer class = "main-footer foo">
+            <a href="https://github.com/bharatm29/SpringBootProject">
+                <img class = "footer-img" src="../static/css/img/github.png" th:attr="src=@{/css/img/github.png}" alt="Not found">
+            </a>
+        </footer>
     </div>
-    <footer class = "main-footer foo">
-        <a href="https://github.com/bharatm29/SpringBootProject">
-            <img class = "footer-img" src="../static/css/img/github.png" th:attr="src=@{/css/img/github.png}" alt="Not found">
-        </a>
-    </footer>
 </body>
 </html>

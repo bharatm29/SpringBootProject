@@ -7,21 +7,27 @@
     <link rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style.css}">
 </head>
 <body>
-    <header class = "main-header">
-        <nav class = "main-nav nav">
-            <ul class = "headerList">
-                <li class = "headerLi"><a href="home.html" th:href="@{/homepage}">Home</a></li>
-                <li class = "headerLi"><a href="apod.html" th:href="@{/apod}">Picture of the Day</a></li>
-                <li class = "headerLi"><a href="imgSearch.html" th:href="@{/imgSearch}">Image Search</a></li>
-            </ul>
-        </nav>
-        <h1 class = "headerH1">Space API</h1>
-    </header>
+    <div class="app-container">
+        <header class = "main-header">
+            <nav class = "main-nav nav">
+                <ul class = "headerList">
+                    <li class = "headerLi"><a href="home.html" th:href="@{/homepage}">Home</a></li>
+                    <li class = "headerLi"><a href="apod.html" th:href="@{/apod}">Picture of the Day</a></li>
+                    <li class = "headerLi"><a href="imgSearch.html" th:href="@{/imgSearch}">Image Search</a></li>
+                </ul>
+            </nav>
+            <h1 class = "headerH1">Space API</h1>
+        </header>
 
-    <footer class = "main-footer foo">
-        <a href="https://github.com/bharatm29/SpringBootProject">
-            <img class = "footer-img" src="../static/css/img/github.png" th:attr="src=@{/css/img/github.png}" alt="Not found">
-        </a>
-    </footer>
+        <div class="content-container">
+            <p></p>
+        </div>
+
+        <footer class = "main-footer foo">
+            <a href="https://github.com/bharatm29/SpringBootProject">
+                <img class = "footer-img" src="../static/css/img/github.png" th:attr="src=@{/css/img/github.png}" alt="Not found">
+            </a>
+        </footer>
+    </div>
 </body>
 </html>
