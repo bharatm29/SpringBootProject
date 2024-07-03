@@ -1,21 +1,19 @@
-package com.space.SpaceAPI.resource;
+package com.space.SpaceAPI.service;
 
 import com.space.SpaceAPI.models.AstroAPODPicture;
 import com.space.SpaceAPI.models.astroImage.AstroImage;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.RequestEntity;
-import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.List;
-
+@Service
 public class AstroAPI {
-    @Autowired
-    private RestTemplate restTemplate;
+    private final RestTemplate restTemplate;
+
+    public AstroAPI(RestTemplate restTemplate) {
+        this.restTemplate = restTemplate;
+    }
 
     @Value("${apod.url}")
     private String apodUrl;

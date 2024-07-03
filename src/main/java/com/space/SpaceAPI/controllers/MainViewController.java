@@ -1,9 +1,10 @@
-package com.space.SpaceAPI.resource;
+package com.space.SpaceAPI.controllers;
 
 import com.space.SpaceAPI.models.AstroAPODPicture;
 import com.space.SpaceAPI.models.InputDate;
+import com.space.SpaceAPI.service.AstroAPI;
+
 import jakarta.servlet.http.HttpSession;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -14,13 +15,20 @@ import java.util.List;
 
 @Controller
 public class MainViewController {
-    @Autowired
-    private AstroAPI astroAPI;
+    private final AstroAPI astroAPI;
 
-    @GetMapping("/homepage")
+    public MainViewController(AstroAPI astroAPI) {
+        this.astroAPI = astroAPI;
+    }
+
+    @GetMapping("/")
     public ModelAndView getToHome(HttpSession session){
-
         return new ModelAndView("home");
+    }
+
+    @GetMapping("/home")
+    public ModelAndView redirect(HttpSession session) {
+        return getToHome(session);
     }
 
     @GetMapping("/apod")
