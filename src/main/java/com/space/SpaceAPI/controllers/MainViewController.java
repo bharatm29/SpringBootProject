@@ -62,6 +62,9 @@ public class MainViewController {
         AstroAPODPicture astroImg = astroAPI.getAPOD(date);
 
         session.setAttribute("apodImgObj", astroImg);
+
+        System.out.println(astroImg.getHdurl());
+
         return apodImage;
     }
 }
